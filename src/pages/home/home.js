@@ -22,7 +22,6 @@ const Home = () => {
   const [errorPassword, setErrorPassword] = useState("");
   const [errorBirthday, setErrorBirthday] = useState("");
   const [errorCheckbox, setErrorCheckbox] = useState("");
-
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
