@@ -21,15 +21,11 @@ const PageOne = styled.div`
     height: 100%;
   }
 
-  button {
-    @media (max-width: 900px) {
-      margin: 2em 0 2em 0;
-      width: 80vw;
-    }
-  }
+
 `;
 
 export { PageOne };
+
 
 const Footer = styled.div`
   display: flex;

@@ -34,6 +34,10 @@ const ButtonPosition = styled.div`
     @media (max-width: 970px) {
       margin: 0 0 2em 12em;
     }
+    @media (max-width: 900px) {
+      margin: 2em 0 2em 0;
+      width: 80vw;
+    }
   }
 `;
 export { ButtonPosition };
