@@ -78,12 +78,13 @@ const Home = () => {
     }
   };
   const handleClickCheckbox = ({ target }) => {
-    if (setChecked(target.checked)) {
+    if (setChecked(!checked)) {
       setErrorCheckbox("visible");
       console.log("notChecked");
       
     } else {
       setErrorCheckbox("");
+      setChecked(target.value);
       console.log("checked");
     }
   };
@@ -99,6 +100,7 @@ const Home = () => {
       navigation("/success");
     } else {
       alert("Preencha os campos corretamente");
+      setErrorCheckbox("visible");
     }
   };
 
@@ -175,7 +177,7 @@ const Home = () => {
           <Footer>
             <CheckBox
               checked={checked}
-              onClick={handleClickCheckbox}
+              onBlur={handleClickCheckbox}
               value="Checkbox"
               label=" I accept the terms and privacy"
               error="You must accept the terms"
