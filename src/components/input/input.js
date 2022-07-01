@@ -10,18 +10,22 @@ const Input = ({
   onChange,
   onBlur,
   show,
+  onSelect
 }) => {
   return (
     <InputPosition>
       <label htmlFor="">{label}</label>
       <input
         type={type}
+        onSelect={onSelect}
         placeholder={placeholder}
         required={required}
         onChange={onChange}
         onBlur={onBlur}
       />
-      <Error show={show}><p>{error}</p></Error>
+      <Error show={show}>
+        <p>{error}</p>
+      </Error>
     </InputPosition>
   );
 };

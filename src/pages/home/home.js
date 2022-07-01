@@ -27,8 +27,8 @@ const Home = () => {
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [birthday, setBirthday] = useState("");
+  const [birthdayValidate, setBirthdayValidate] = useState(false);
   const [checked, setChecked] = useState(false);
-
   const navigation = useNavigate();
 
   const handleBlurName = ({ target }) => {
@@ -67,31 +67,28 @@ const Home = () => {
       setPassword(target.value);
     }
   };
-  const handleBlurBirthday = ({ target }) => {
-    const regex =  /^\d{4}-\d{2}-\d{2}$/
-    if (!regex.test(target.value)) {
-      setErrorBirthday("visible");
-    } else {
+  const handleBlurBirthday = () => {
+   const date = new Date();
+    const year = date.getFullYear();
+    const newDate = parseInt(birthday.slice(0, 4));
+    if (year - newDate < 120) {
       setErrorBirthday("");
-      setBirthday(target.value);
-      console.log(birthday);
+      setBirthdayValidate(true);
+    } else {
+      setErrorBirthday("visible");
+      setBirthdayValidate(false);
     }
+
   };
   const handleClickCheckbox = ({ target }) => {
-    if (setChecked(!checked)) {
-      setErrorCheckbox("visible");
-      console.log("notChecked");
-      
-    } else {
-      setErrorCheckbox("");
-      setChecked(target.value);
-      console.log("checked");
-    }
+    setChecked(target.checked);
+    
+
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (name && email && phone && password && birthday && checked === true) {
+    if (name && email && phone && password && birthday && checked === true && birthdayValidate === true) {
       localStorage.setItem("name", name);
       localStorage.setItem("email", email);
       localStorage.setItem("phone", phone);
@@ -100,6 +97,8 @@ const Home = () => {
       navigation("/success");
     } else {
       alert("Preencha os campos corretamente");
+    }
+    if (checked === false) {
       setErrorCheckbox("visible");
     }
   };
@@ -164,6 +163,7 @@ const Home = () => {
             <Input
               value={birthday}
               onBlur={handleBlurBirthday}
+              onChange={(date) => setBirthday(date.target.value)}
               type="date"
               placeholder="yyyy/mm/dd"
               label="Birthday *"
@@ -177,7 +177,7 @@ const Home = () => {
           <Footer>
             <CheckBox
               checked={checked}
-              onBlur={handleClickCheckbox}
+              onChange={(e) => handleClickCheckbox(e)}
               value="Checkbox"
               label=" I accept the terms and privacy"
               error="You must accept the terms"

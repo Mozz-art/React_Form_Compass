@@ -7,11 +7,11 @@ import Success from "./pages/success/success";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-    <BrowserRouter>
-        <Routes>
-        <Route path='/' exact={true} component={App} />
-        <Route path="/Home" element={<Home />} />
-        <Route path="/success" element={<Success />} />
-        </Routes>
-    </BrowserRouter>,
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" exact={true} component={App} />
+      <Route path="/Home" element={<Home />} />
+      <Route path="/success" element={<Success />} />
+    </Routes>
+  </BrowserRouter>
 );

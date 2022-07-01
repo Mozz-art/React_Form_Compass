@@ -1,12 +1,13 @@
-import { CheckBoxPosition } from './checkbox.styled.js'
+import { CheckBoxPosition } from "./checkbox.styled.js";
 import { Error } from "./../error/error.styled.js";
-const CheckBox = ({label,placeholder, error, onBlur}) => {
-  
+const CheckBox = ({ label, placeholder, error, onChange, show }) => {
   return (
     <CheckBoxPosition>
-      <input onBlur={onBlur} type="checkbox" placeholder={placeholder}/>
+      <input onChange={onChange} type="checkbox" placeholder={placeholder} />
       <label>{label}</label>
-      <Error><p>{error}</p></Error>
+      <Error show={show}>
+        <p>{error}</p>
+      </Error>
     </CheckBoxPosition>
   );
 };

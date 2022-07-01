@@ -32,7 +32,7 @@ const PageSuccess = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  font-family: 'Inter';
+  font-family: "Inter";
   @media (max-width: 1300px) {
     width: 60%;
     height: 100%;
@@ -46,7 +46,7 @@ const PageSuccess = styled.div`
     width: 6em;
     height: 4em;
     margin: 3em 0 0 0;
-    font-family: 'Nunito';
+    font-family: "Nunito";
   }
 `;
 

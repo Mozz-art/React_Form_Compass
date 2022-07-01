@@ -14,8 +14,8 @@ const InputPosition = styled.div`
     :focus {
       outline: none;
     }
-    ::placeholder  {
-        padding: 1%;
+    ::placeholder {
+      padding: 1%;
       font-size: 16px;
     }
   }
@@ -70,9 +70,6 @@ const InputBirthday = styled.div`
     width: 42%;
     order: 1;
   }
-
-
 `;
 
 export { InputBirthday };
-

@@ -1,9 +1,9 @@
-import { ButtonPosition } from './button.styled.js'
+import { ButtonPosition } from "./button.styled.js";
 
-const Button = ({button}) => {
+const Button = ({ button }) => {
   return (
     <ButtonPosition>
-    <button type="submit">{button}</button>
+      <button type="submit">{button}</button>
     </ButtonPosition>
   );
 };
